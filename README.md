@@ -1,15 +1,15 @@
-# better-auth-strapi
+# Better Auth + Strapi
 
 A [Better Auth](https://better-auth.com) plugin that enables authentication using [Strapi](https://strapi.io) as the backend.
 
 ## Features
 
 - = Sign in with Strapi credentials
-- =› User registration through Strapi
+- =√ù User registration through Strapi
 - = Password reset and update functionality
-- <£ Custom session hooks for extended user data
+- <¬£ Custom session hooks for extended user data
 - = Seamless integration with Better Auth
-- =Ê TypeScript support with full type safety
+- =√¶ TypeScript support with full type safety
 
 ## Installation
 
@@ -69,7 +69,7 @@ export const authClient = createAuthClient({
 #### Sign Up
 
 ```typescript
-const { data, error } = await authClient.signUp.strapi({
+const { data, error } = await authClient.strapiAuth.signUp({
   identifier: "user@example.com",
   password: "securePassword123",
 });
@@ -78,7 +78,7 @@ const { data, error } = await authClient.signUp.strapi({
 #### Sign In
 
 ```typescript
-const { data, error } = await authClient.signIn.strapi({
+const { data, error } = await authClient.strapiAuth.signIn({
   identifier: "user@example.com", // Email or username
   password: "securePassword123",
 });
@@ -92,7 +92,7 @@ if (data) {
 #### Forgot Password
 
 ```typescript
-const { data, error } = await authClient.forgotPassword({
+const { data, error } = await authClient.strapiAuth.forgotPassword({
   email: "user@example.com",
 });
 ```
@@ -100,7 +100,7 @@ const { data, error } = await authClient.forgotPassword({
 #### Update Password
 
 ```typescript
-const { data, error } = await authClient.updatePassword({
+const { data, error } = await authClient.strapiAuth.updatePassword({
   code: "reset-code-from-email",
   password: "newSecurePassword123",
   passwordConfirmation: "newSecurePassword123",
@@ -134,7 +134,7 @@ Ensure your Strapi instance has the following enabled:
 
 1. **Users & Permissions plugin** (enabled by default)
 2. **Email plugin** configured for password reset emails
-3. Public access to authentication endpoints:
+3. Access to authentication endpoints:
    - `/api/auth/local` (sign in)
    - `/api/auth/local/register` (sign up)
    - `/api/auth/forgot-password` (forgot password)
