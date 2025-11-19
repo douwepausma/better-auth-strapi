@@ -1,6 +1,6 @@
 {
   "name": "better-auth-strapi",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A Better Auth plugin to authenticate with Strapi",
   "license": "MIT",
   "author": "@douweapausma",
