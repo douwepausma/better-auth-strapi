@@ -9,13 +9,9 @@ export default function signUp(options: StrapiAuthOptions) {
         "/strapi-auth/sign-up",
         {
             method: "POST",
-            body: z.object({
-                identifier: z.string(),
-                password: z.string(),
-            }),
+            body: z.any(),
         },
         async (ctx) => {
-            const { identifier, password } = ctx.body;
             const headers = new Headers();
             headers.append("Content-Type", "application/json");
             if(options.strapiToken) headers.append("Authorization", `Bearer ${options.strapiToken}`);
@@ -26,16 +22,14 @@ export default function signUp(options: StrapiAuthOptions) {
                 {
                     method: "POST",
                     headers,
-                    body: JSON.stringify({ email: identifier, password }),
+                    body: JSON.stringify(ctx.body),
                 }
             );
 
             if (!strapiResponse.ok) {
                 const errorData = await strapiResponse.json();
-                return ctx.json(
-                    { error: errorData.message || "Registration failed" },
-                    { status: 400 }
-                );
+                console.log("Strapi sign-up error:", errorData);   
+                return ctx.error("UNAUTHORIZED", errorData.error);
             }
 
             const strapiSession = await strapiResponse.json();
