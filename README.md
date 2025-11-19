@@ -38,6 +38,7 @@ export const auth = betterAuth({
         // Optional: Map additional Strapi user fields
         firstName: "firstName",
         lastName: "lastName",
+        image: "avatar.url"
       },
       sessionHook: async ({ session, user }) => {
         // Optional: Extend session with custom data
@@ -70,7 +71,7 @@ export const authClient = createAuthClient({
 
 ```typescript
 const { data, error } = await authClient.strapiAuth.signUp({
-  identifier: "user@example.com",
+  email: "user@example.com",
   password: "securePassword123",
 });
 ```
