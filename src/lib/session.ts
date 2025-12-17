@@ -69,6 +69,7 @@ export const setStrapiSession = async (strapiSession: StrapiSession, options:Str
         createdAt: new Date(),
         updatedAt: new Date(),
         token: sessionToken,
+        strapiJwt,
         userId: user.id,
         expiresAt,
         ipAddress: ctx.headers?.get("x-forwarded-for") || "",

@@ -2,7 +2,6 @@ import { createAuthEndpoint } from "better-auth/api";
 import { z } from "zod";
 
 import type { StrapiAuthOptions } from "..";
-import { setStrapiSession } from "../lib/session";
 
 export default function signUp(options: StrapiAuthOptions) {
     return createAuthEndpoint(
@@ -32,14 +31,10 @@ export default function signUp(options: StrapiAuthOptions) {
                 return ctx.error("UNAUTHORIZED", errorData.error);
             }
 
-            const strapiSession = await strapiResponse.json();
-
-            // Set session cookie
-            const { user, session, strapiJwt } = await setStrapiSession(strapiSession, options, ctx);
+            const {user, jwt:strapiJwt} = await strapiResponse.json();
 
             return ctx.json({
                 user,
-                session,
                 strapiJwt // Return Strapi JWT for making Strapi API calls
             });
         }
