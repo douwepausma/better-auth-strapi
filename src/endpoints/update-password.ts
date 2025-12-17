@@ -39,7 +39,7 @@ export default function updatePassword(options: StrapiAuthOptions) {
             const strapiSession = await strapiResponse.json();
 
             // Set session cookie
-            if(options.signInAfterReset) {
+            if(options.signInAfterReset && strapiSession.user.confirmed) {
                 const { user, session, strapiJwt } = await setStrapiSession(strapiSession, options, ctx);
 
                 return ctx.json({ user, session, strapiJwt });
