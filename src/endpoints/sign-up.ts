@@ -27,7 +27,7 @@ export default function signUp(options: StrapiAuthOptions) {
 
             if (!strapiResponse.ok) {
                 const errorData = await strapiResponse.json();
-                console.log("Strapi sign-up error:", errorData);   
+                console.error("Strapi sign-up error:", errorData);   
                 return ctx.error("UNAUTHORIZED", errorData.error);
             }
 
