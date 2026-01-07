@@ -2,7 +2,7 @@ import { Session, User } from "better-auth";
 import signIn from "./endpoints/sign-in";
 import signUp from "./endpoints/sign-up";
 import forgotPassword from "./endpoints/forgot-password";
-import updatePassword from "./endpoints/update-password";
+import resetPassword from "./endpoints/reset-password";
 
 export interface StrapiAuthOptions {
   strapiUrl: string;
@@ -24,7 +24,7 @@ export const strapiAuth = (options: StrapiAuthOptions) => {
       signIn: signIn(options),
       signUp: signUp(options),
       forgotPassword: forgotPassword(options),
-      updatePassword: updatePassword(options),
+      resetPassword: resetPassword(options),
     },
   };
 };

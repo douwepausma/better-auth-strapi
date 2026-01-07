@@ -6,7 +6,7 @@ import { setStrapiSession } from "../lib/session";
 
 export default function updatePassword(options: StrapiAuthOptions) {
     return createAuthEndpoint(
-        "/strapi-auth/update-password",
+        "/strapi-auth/reset-password",
         {
             method: "POST",
             body: z.object({
