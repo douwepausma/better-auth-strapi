@@ -4,7 +4,7 @@ import { z } from "zod";
 import type { StrapiAuthOptions } from "..";
 import { setStrapiSession } from "../lib/session";
 
-export default function updatePassword(options: StrapiAuthOptions) {
+export default function resetPassword(options: StrapiAuthOptions) {
     return createAuthEndpoint(
         "/strapi-auth/reset-password",
         {
