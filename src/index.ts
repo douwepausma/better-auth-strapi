@@ -3,6 +3,7 @@ import signIn from "./endpoints/sign-in";
 import signUp from "./endpoints/sign-up";
 import forgotPassword from "./endpoints/forgot-password";
 import updatePassword from "./endpoints/update-password";
+import sendEmailConfirmation from "./endpoints/send-email-confirmation";
 
 export interface StrapiAuthOptions {
   strapiUrl: string;
@@ -25,6 +26,7 @@ export const strapiAuth = (options: StrapiAuthOptions) => {
       signUp: signUp(options),
       forgotPassword: forgotPassword(options),
       updatePassword: updatePassword(options),
+      sendEmailConfirmation: sendEmailConfirmation(options),
     },
   };
 };
