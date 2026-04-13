@@ -28,7 +28,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "better-auth": "^1.4.7",
+    "better-auth": "^1.6.2",
     "zod": "^4.1.12"
   },
   "devDependencies": {
