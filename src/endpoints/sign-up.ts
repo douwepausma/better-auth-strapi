@@ -8,7 +8,11 @@ export default function signUp(options: StrapiAuthOptions) {
         "/strapi-auth/sign-up",
         {
             method: "POST",
-            body: z.any(),
+            body: z.object({
+                username: z.string(),
+                email: z.email(),
+                password: z.string(),
+            }).loose(),
         },
         async (ctx) => {
             const headers = new Headers();
