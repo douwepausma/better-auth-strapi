@@ -1,8 +1,11 @@
+> [!WARNING]
+> For a proper integration with Better Auth, please look at [@strapi-community/plugin-better-auth](https://github.com/strapi-community/plugin-better-auth). If you're looking to contribute I'd urge you to do it there. This plugin will inevitably be archived.
+> 
 # Better Auth + Strapi
 
 A [Better Auth](https://better-auth.com) plugin that enables authentication using [Strapi](https://strapi.io) as the backend.
 
-> [!WARNING]
+> [!CAUTION]
 > This plugin is still in development and a work in progress, **do not** use it in production. It's not yet tested for vulnerabilities, and most likely not yet secure.
 
 ## Features
